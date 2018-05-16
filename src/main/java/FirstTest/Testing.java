@@ -5,10 +5,9 @@ import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class Testing {
 
@@ -24,10 +23,11 @@ public class Testing {
     @TRTest(testCaseId = 1)
     static void Logins(int i) throws IOException, APIException {
 
-        System.setProperty("webdriver.chrome.driver", "/home/user/Soft/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        System.setProperty("webdriver.chrome.driver", "/home/user/Soft/chromedriver");
+//        driver = new ChromeDriver();
+        HtmlUnitDriver driver = new HtmlUnitDriver(true);
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //        driver.get("http://192.168.221.143:9080/clientServiceWeb/login.html");
         driver.get("http://" + Start.argumentIPKS + "/clientServiceWeb/login.html");
 
@@ -42,7 +42,7 @@ public class Testing {
         WebElement button = driver.findElement(By.name("action"));
         button.click();
 
-        try { driver.findElement(By.name("button")).isDisplayed();
+        try { driver.findElement(By.name("button")).isEnabled();
 
             val = 1;
             comment = "Работает";
@@ -60,6 +60,7 @@ public class Testing {
     }
 
     @TRTest(testCaseId = 2)
+//    @Ignore
     static void Report(int i) throws IOException, APIException {
         System.out.println("Отчет сформировался");
 

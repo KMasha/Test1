@@ -1,7 +1,5 @@
 package FirstTest;
 
-import com.github.ppadial.testrail.client.apiClient.ApiClient;
-
 import java.io.IOException;
 
 public class Connects {
@@ -14,7 +12,7 @@ public class Connects {
             return client;
 
         } catch (Exception e) {
-//            Start.log.debug("TestRail недоступен");
+            Start.log.error("TestRail недоступен");
 //            System.out.println("TestRail недоступен");
             return (null);
         }

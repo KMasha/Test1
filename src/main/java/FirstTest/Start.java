@@ -1,12 +1,11 @@
 package FirstTest;
 
-import org.apache.log4j.LogManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.util.logging.ErrorManager;
-import java.util.logging.Logger;
 
-import static org.testng.internal.Utils.log;
+//import org.apache.logging.log4j.Logger;
 
 
 //@RunWith(MyRunner.class)
@@ -20,7 +19,8 @@ public class Start
     public static int argumentRunID;
     public static String argumentIPKS;
 
-    public static org.apache.log4j.Logger log = LogManager.getRootLogger();
+//    public static org.apache.log4j.Logger log =  LogManager.getRootLogger();
+    public static Logger log = LogManager.getLogger(Start.class.getName());
 
     public static void main (String[] args) throws IOException, APIException {
 
@@ -28,8 +28,12 @@ public class Start
             try {
                 argumentRunID = Integer.parseInt(args[0]);
                 argumentIPKS = args[1];
+
+//                argumentRunID = 32;
+//                argumentIPKS = "192.168.221.143:9080";
+
 //                System.out.println("СТАРТ");
-                log.error("Старт");
+                log.info("Старт");
                 GetCases getCases = new GetCases();
                 Integer getCase =  getCases.GetCase();
             } catch (Exception e){

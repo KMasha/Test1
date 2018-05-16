@@ -22,8 +22,9 @@ public class AddResultForCase {
 
         try {
             r = (JSONObject) newCon.sendPost("add_result_for_case/" + Start.argumentRunID + "/" + i, data);
+            Start.log.info("Пройден Run_id:" + Start.argumentRunID + " case_id: " + i + " " + data);
         } catch (Exception e){
-            System.out.println("Error");
+            Start.log.error("Результат не записан, Run_id:" + Start.argumentRunID + " case_id: " + i);
         }
         return ((JSONObject) r);
 

@@ -1,16 +1,12 @@
 package FirstTest;
 
-import java.net.URL;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.BufferedReader;
-import java.io.UnsupportedEncodingException;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class APIClient
 {
@@ -289,4 +285,5 @@ public class APIClient
 
         return sb.toString();
     }
+
 }

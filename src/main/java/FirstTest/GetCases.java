@@ -14,24 +14,28 @@ public class GetCases {
 
         Integer tests = null;
         try {
-
-
             JSONArray r = (JSONArray) newCon.sendGet("get_tests/" + Start.argumentRunID);
-            for(int i = 0; i < r.size(); i++) {
+            for (int i = 0; i < r.size(); i++) {
 
                 tests = Tests.parse((JSONObject) r.get(i)).getCaseId();
                 switch (tests) {
-                    case 1: Testing.Logins(1); break;
-                    case 2: Testing.Report(2); break;
-                    case 34: Testing.Print(34); break;
+                    case 1:
+                        Testing.Logins(1);
+                        break;
+                    case 2:
+                        Testing.Report(2);
+                        break;
+                    case 34:
+                        Testing.Print(34);
+                        break;
                     default:
-                 }
+                }
 
             }
 
-        } catch (Exception e){
-//            Start.log.debug("Нет такого RUN_ID :" + Start.argumentRunID);
+        } catch (Exception e) {
+            Start.log.error("Нет такого RUN_ID :" + Start.argumentRunID);
         }
-         return (tests);
+        return (tests);
     }
 }
