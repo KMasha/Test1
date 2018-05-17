@@ -1,9 +1,7 @@
 package FirstTest;
 
-import java.io.IOException;
-
-public class Connects {
-     public APIClient Connect() throws IOException, APIException {
+public class ConnectsTestRail {
+     public APIClient Connect() {
 
         try {
             APIClient client = new APIClient("http://izh.technoserv.com/testrail/");
@@ -13,7 +11,7 @@ public class Connects {
 
         } catch (Exception e) {
             Start.log.error("TestRail недоступен");
-//            System.out.println("TestRail недоступен");
+            System.exit(1);
             return (null);
         }
     }

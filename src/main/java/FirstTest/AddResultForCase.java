@@ -9,14 +9,14 @@ import java.util.Map;
 public class AddResultForCase {
     public JSONObject AddResultForCase(Integer val, String comment, String defects, int i) throws IOException, APIException{
 
-        Connects con = new Connects();
+        ConnectsTestRail con = new ConnectsTestRail();
         APIClient newCon = con.Connect();
 
         Map data = new HashMap();
         data.put("status_id", new Integer(val));
         data.put("defects", defects);
         data.put("comment", comment);
-//        data.put("custom_step_results", steps);
+//        data.put("custom_step_results", steps); можно возвращать результат каждому шагу тесткейса
 
         JSONObject r = new JSONObject();
 
@@ -26,7 +26,7 @@ public class AddResultForCase {
         } catch (Exception e){
             Start.log.error("Результат не записан, Run_id:" + Start.argumentRunID + " case_id: " + i);
         }
-        return ((JSONObject) r);
+        return (r);
 
     }
 }
